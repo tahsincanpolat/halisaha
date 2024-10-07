@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="tr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Halı Saha Takım Dağıtıcı</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        background-color: #f4f4f9;
+        color: #333;
+      }
+
+      .container {
+        width: 90%;
+        margin: 40px auto;
+        max-width: 1200px;
+      }
+
+      h1 {
+        color: #2c3e50;
+        font-size: 36px;
+        margin-bottom: 20px;
+      }
+
+      .teams {
+        display: flex;
+        justify-content: space-between;
+        margin: 40px 0;
+      }
+
+      .team {
+        width: 48%;
+        padding: 20px;
+        border: 2px solid #3498db;
+        border-radius: 10px;
+        background-color: #ecf0f1;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+      }
+
+      .team h2 {
+        font-size: 24px;
+        color: #2980b9;
+        margin-bottom: 20px;
+      }
+
+      ul {
+        list-style: none;
+        padding: 0;
+      }
+
+      li {
+        padding: 10px;
+        margin-bottom: 10px;
+        background-color: #3498db;
+        color: white;
+        border-radius: 5px;
+        font-size: 18px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        transition: background-color 0.3s ease;
+      }
+
+      li:hover {
+        background-color: #2980b9;
+      }
+
+      li span {
+        font-weight: bold;
+      }
+
+      button {
+        padding: 15px 30px;
+        font-size: 18px;
+        cursor: pointer;
+        background-color: #e74c3c;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #c0392b;
+      }
+
+      @media (max-width: 768px) {
+        .teams {
+          flex-direction: column;
+          align-items: center;
+        }
+
+        .team {
+          width: 90%;
+          margin-bottom: 20px;
+        }
+
+        h1 {
+          font-size: 28px;
+        }
+
+        button {
+          width: 100%;
+          padding: 12px;
+          font-size: 16px;
+        }
+
+        li {
+          font-size: 16px;
+        }
+      }
+
+      @media (max-width: 480px) {
+        h1 {
+          font-size: 24px;
+        }
+
+        button {
+          font-size: 14px;
+        }
+
+        li {
+          font-size: 14px;
+        }
+      }
+    </style>
+    <script>
+      const players = [
+        {
+          name: "Burak",
+          position: "Defans",
+          speed: 70,
+          shooting: 75,
+          passing: 90,
+          dribbling: 70,
+          defense: 90,
+          physical: 88,
+        },
+        {
+          name: "Tahsin",
+          position: "Defans",
+          speed: 77,
+          shooting: 88,
+          passing: 90,
+          dribbling: 74,
+          defense: 90,
+          physical: 88,
+        },
+        {
+          name: "Halil",
+          position: "Orta Saha",
+          speed: 74,
+          shooting: 77,
+          passing: 90,
+          dribbling: 78,
+          defense: 85,
+          physical: 84,
+        },
+        {
+          name: "Baki",
+          position: "Defans",
+          speed: 82,
+          shooting: 72,
+          passing: 75,
+          dribbling: 80,
+          defense: 85,
+          physical: 80,
+        },
+        {
+          name: "İbo",
+          position: "Defans",
+          speed: 82,
+          shooting: 70,
+          passing: 72,
+          dribbling: 77,
+          defense: 85,
+          physical: 77,
+        },
+        {
+          name: "Berkay",
+          position: "Orta Saha",
+          speed: 85,
+          shooting: 75,
+          passing: 74,
+          dribbling: 87,
+          defense: 80,
+          physical: 88,
+        },
+        {
+          name: "Salih",
+          position: "Orta Saha",
+          speed: 88,
+          shooting: 92,
+          passing: 94,
+          dribbling: 85,
+          defense: 90,
+          physical: 88,
+        },
+        {
+          name: "Onur",
+          position: "Orta Saha",
+          speed: 90,
+          shooting: 92,
+          passing: 94,
+          dribbling: 90,
+          defense: 90,
+          physical: 84,
+        },
+        {
+          name: "Yavuz",
+          position: "Orta Saha",
+          speed: 83,
+          shooting: 85,
+          passing: 85,
+          dribbling: 80,
+          defense: 85,
+          physical: 90,
+        },
+        {
+          name: "Kerem",
+          position: "Forvet",
+          speed: 89,
+          shooting: 92,
+          passing: 87,
+          dribbling: 95,
+          defense: 70,
+          physical: 83,
+        },
+        {
+          name: "Ahmet",
+          position: "Forvet",
+          speed: 99,
+          shooting: 90,
+          passing: 82,
+          dribbling: 96,
+          defense: 70,
+          physical: 82,
+        },
+        {
+          name: "Serhan",
+          position: "Orta Saha",
+          speed: 70,
+          shooting: 91,
+          passing: 80,
+          dribbling: 70,
+          defense: 70,
+          physical: 82,
+        },
+        {
+          name: "Muharrem",
+          position: "Kaleci",
+          speed: 90,
+          shooting: 90,
+          passing: 90,
+          dribbling: 90,
+          defense: 90,
+          physical: 90,
+        },
+
+        {
+          name: "Erkan",
+          position: "Kaleci",
+          speed: 90,
+          shooting: 90,
+          passing: 90,
+          dribbling: 90,
+          defense: 90,
+          physical: 90,
+        },
+      ];
+
+      function calculateAverageRating(player) {
+        return (
+          (player.speed +
+            player.shooting +
+            player.passing +
+            player.dribbling +
+            player.defense +
+            player.physical) /
+          6
+        );
+      }
+
+      players.forEach((player) => {
+        player.averageRating = calculateAverageRating(player);
+      });
+
+      function shuffleArray(array) {
+        for (let i = array.length - 1; i > 0; i--) {
+          const j = Math.floor(Math.random() * (i + 1));
+          [array[i], array[j]] = [array[j], array[i]];
+        }
+        return array;
+      }
+
+      function distributeTeams() {
+        const team1 = [];
+        const team2 = [];
+
+        const goolkeeper = shuffleArray(
+          players.filter((player) => player.position === "Kaleci")
+        );
+        const forwards = shuffleArray(
+          players.filter((player) => player.position === "Forvet")
+        );
+        const midfielders = shuffleArray(
+          players.filter((player) => player.position === "Orta Saha")
+        );
+        const defenders = shuffleArray(
+          players.filter((player) => player.position === "Defans")
+        );
+
+        distributeToTeams(goolkeeper, team1, team2);
+        distributeToTeams(forwards, team1, team2);
+        distributeToTeams(midfielders, team1, team2);
+        distributeToTeams(defenders, team1, team2);
+
+        displayTeams(team1, team2);
+      }
+
+      function distributeToTeams(players, team1, team2) {
+        players.forEach((player, index) => {
+          if (index % 2 === 0) {
+            team1.push(player);
+          } else {
+            team2.push(player);
+          }
+        });
+      }
+
+      function displayTeams(team1, team2) {
+        const team1List = document.getElementById("team1").querySelector("ul");
+        const team2List = document.getElementById("team2").querySelector("ul");
+
+        team1List.innerHTML = "";
+        team2List.innerHTML = "";
+
+        team1.forEach((player) => {
+          const li = document.createElement("li");
+          li.textContent = `${player.name} - ${
+            player.position
+          } (Rating: ${player.averageRating.toFixed(2)})`;
+          team1List.appendChild(li);
+        });
+
+        team2.forEach((player) => {
+          const li = document.createElement("li");
+          li.textContent = `${player.name} - ${
+            player.position
+          } (Rating: ${player.averageRating.toFixed(2)})`;
+          team2List.appendChild(li);
+        });
+      }
+
+      document
+        .getElementById("generateTeams")
+        .addEventListener("click", distributeTeams);
+    </script>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Takımlar</h1>
+      <div class="teams">
+        <div class="team" id="team1">
+          <h2>Takım 1</h2>
+          <ul></ul>
+        </div>
+        <div class="team" id="team2">
+          <h2>Takım 2</h2>
+          <ul></ul>
+        </div>
+      </div>
+      <button onclick="distributeTeams()">Takımları Dağıt</button>
+    </div>
+  </body>
+</html>
