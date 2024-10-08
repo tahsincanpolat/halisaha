@@ -70,6 +70,20 @@
       li span {
         font-weight: bold;
       }
+      .players-select {
+        display: flex;
+        flex-direction: column;
+        height: 200px;
+        overflow: scroll;
+        justify-content: left;
+        text-align: left;
+        margin-bottom: 20px;
+      }
+      .players-select > label {
+        color: #2980b9;
+        font-size: 16px;
+        margin-bottom: 2px;
+      }
 
       button {
         padding: 15px 30px;
@@ -126,6 +140,29 @@
         }
       }
     </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>Halı Saha Takım Dağıtıcı</h1>
+      <div>
+        <h3>Oyuncuları Seçin (14 kişi)</h3>
+        <div class="players-select" id="playersSelect"></div>
+        <button onclick="distributeTeams()">Takımları Dağıt</button>
+      </div>
+      <div class="teams">
+        <div class="team" id="team1">
+          <h2>Takım 1</h2>
+          <p><strong>Ortalama Rating: </strong><span id="team1AvgRating"></span></p>
+          <ul></ul>
+        </div>
+        <div class="team" id="team2">
+          <h2>Takım 2</h2>
+          <p><strong>Ortalama Rating: </strong><span id="team2AvgRating"></span></p>
+          <ul></ul>
+        </div>
+      </div>
+    </div>
+
     <script>
       const players = [
         {
@@ -147,6 +184,36 @@
           dribbling: 74,
           defense: 90,
           physical: 88,
+        },
+        {
+          name: "Berkay S.",
+          position: "Defans",
+          speed: 82,
+          shooting: 80,
+          passing: 85,
+          dribbling: 82,
+          defense: 91,
+          physical: 88,
+        },
+        {
+          name: "Baran K.",
+          position: "Defans",
+          speed: 77,
+          shooting: 80,
+          passing: 85,
+          dribbling: 78,
+          defense: 82,
+          physical: 83,
+        },
+        {
+          name: "Ömer İlyas",
+          position: "Defans",
+          speed: 82,
+          shooting: 72,
+          passing: 70,
+          dribbling: 77,
+          defense: 82,
+          physical: 77,
         },
         {
           name: "Halil",
@@ -179,7 +246,7 @@
           physical: 77,
         },
         {
-          name: "Berkay",
+          name: "Berkay A.",
           position: "Orta Saha",
           speed: 85,
           shooting: 75,
@@ -219,6 +286,16 @@
           physical: 90,
         },
         {
+          name: "Serhan",
+          position: "Orta Saha",
+          speed: 70,
+          shooting: 91,
+          passing: 80,
+          dribbling: 70,
+          defense: 70,
+          physical: 82,
+        },
+        {
           name: "Kerem",
           position: "Forvet",
           speed: 89,
@@ -239,13 +316,33 @@
           physical: 82,
         },
         {
-          name: "Serhan",
-          position: "Orta Saha",
-          speed: 70,
-          shooting: 91,
-          passing: 80,
-          dribbling: 70,
-          defense: 70,
+          name: "Yusuf B.",
+          position: "Forvet",
+          speed: 80,
+          shooting: 85,
+          passing: 82,
+          dribbling: 79,
+          defense: 74,
+          physical: 82,
+        },
+        {
+          name: "Ömer Faruk",
+          position: "Forvet",
+          speed: 84,
+          shooting: 88,
+          passing: 88,
+          dribbling: 85,
+          defense: 78,
+          physical: 83,
+        },
+        {
+          name: "Arda",
+          position: "Forvet",
+          speed: 84,
+          shooting: 88,
+          passing: 82,
+          dribbling: 85,
+          defense: 74,
           physical: 82,
         },
         {
@@ -258,7 +355,6 @@
           defense: 90,
           physical: 90,
         },
-
         {
           name: "Erkan",
           position: "Kaleci",
@@ -269,8 +365,17 @@
           defense: 90,
           physical: 90,
         },
+        {
+          name: "Hüseyin",
+          position: "Kaleci",
+          speed: 90,
+          shooting: 90,
+          passing: 90,
+          dribbling: 90,
+          defense: 90,
+          physical: 90,
+        },
       ];
-
       function calculateAverageRating(player) {
         return (
           (player.speed +
@@ -287,6 +392,27 @@
         player.averageRating = calculateAverageRating(player);
       });
 
+      function generatePlayerSelect() {
+        const playersSelectDiv = document.getElementById("playersSelect");
+
+        players.forEach((player, index) => {
+          const label = document.createElement("label");
+          const checkbox = document.createElement("input");
+          checkbox.type = "checkbox";
+          checkbox.id = `player_${index}`;
+          checkbox.value = index;
+
+          label.appendChild(checkbox);
+          label.appendChild(
+            document.createTextNode(`${player.name} - ${player.position}`)
+          );
+
+          playersSelectDiv.appendChild(label);
+        });
+      }
+
+      generatePlayerSelect();
+
       function shuffleArray(array) {
         for (let i = array.length - 1; i > 0; i--) {
           const j = Math.floor(Math.random() * (i + 1));
@@ -296,38 +422,45 @@
       }
 
       function distributeTeams() {
+        const selectedPlayers = Array.from(
+          document.querySelectorAll('input[type="checkbox"]:checked')
+        ).map((checkbox) => players[checkbox.value]);
+
+        if (selectedPlayers.length !== 14) {
+          alert("Lütfen tam olarak 14 oyuncu seçin!");
+          return;
+        }
+
         const team1 = [];
         const team2 = [];
 
-        const goolkeeper = shuffleArray(
-          players.filter((player) => player.position === "Kaleci")
-        );
-        const forwards = shuffleArray(
-          players.filter((player) => player.position === "Forvet")
-        );
-        const midfielders = shuffleArray(
-          players.filter((player) => player.position === "Orta Saha")
-        );
-        const defenders = shuffleArray(
-          players.filter((player) => player.position === "Defans")
+        const goalkeepers = selectedPlayers.filter(
+          (player) => player.position === "Kaleci"
         );
 
-        distributeToTeams(goolkeeper, team1, team2);
-        distributeToTeams(forwards, team1, team2);
-        distributeToTeams(midfielders, team1, team2);
-        distributeToTeams(defenders, team1, team2);
+        if (goalkeepers.length === 2) {
+          team1.push(goalkeepers[0]);
+          team2.push(goalkeepers[1]);
+        } else if (goalkeepers.length > 2 || goalkeepers.length < 2) {
+          alert("2 kaleci seçiniz!");
+          return;
+        }
 
-        displayTeams(team1, team2);
-      }
+        const nonGoalkeepers = selectedPlayers.filter(
+          (player) => player.position !== "Kaleci"
+        );
 
-      function distributeToTeams(players, team1, team2) {
-        players.forEach((player, index) => {
-          if (index % 2 === 0) {
+        const shuffledPlayers = shuffleArray(nonGoalkeepers);
+
+        shuffledPlayers.forEach((player) => {
+          if (team1.length < 7) {
             team1.push(player);
           } else {
             team2.push(player);
           }
         });
+
+        displayTeams(team1, team2);
       }
 
       function displayTeams(team1, team2) {
@@ -337,12 +470,16 @@
         team1List.innerHTML = "";
         team2List.innerHTML = "";
 
+        let team1TotalRating = 0;
+        let team2TotalRating = 0;
+
         team1.forEach((player) => {
           const li = document.createElement("li");
           li.textContent = `${player.name} - ${
             player.position
           } (Rating: ${player.averageRating.toFixed(2)})`;
           team1List.appendChild(li);
+          team1TotalRating += player.averageRating;
         });
 
         team2.forEach((player) => {
@@ -351,28 +488,21 @@
             player.position
           } (Rating: ${player.averageRating.toFixed(2)})`;
           team2List.appendChild(li);
+          team2TotalRating += player.averageRating;
         });
-      }
 
-      document
-        .getElementById("generateTeams")
-        .addEventListener("click", distributeTeams);
+        const team1AvgRating =
+          team1TotalRating / team1.length || 0;
+        const team2AvgRating =
+          team2TotalRating / team2.length || 0;
+
+        document.getElementById(
+          "team1AvgRating"
+        ).textContent = team1AvgRating.toFixed(2);
+        document.getElementById(
+          "team2AvgRating"
+        ).textContent = team2AvgRating.toFixed(2);
+      }
     </script>
-  </head>
-  <body>
-    <div class="container">
-      <h1>Takımlar</h1>
-      <div class="teams">
-        <div class="team" id="team1">
-          <h2>Takım 1</h2>
-          <ul></ul>
-        </div>
-        <div class="team" id="team2">
-          <h2>Takım 2</h2>
-          <ul></ul>
-        </div>
-      </div>
-      <button onclick="distributeTeams()">Takımları Dağıt</button>
-    </div>
   </body>
 </html>
