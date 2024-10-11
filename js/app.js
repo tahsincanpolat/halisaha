@@ -80,6 +80,16 @@ const players = [
     physical: 77
   },
   {
+    name: 'Berkay G.',
+    position: 'Defans',
+    speed: 83,
+    shooting: 80,
+    passing: 84,
+    dribbling: 79,
+    defense: 83,
+    physical: 80
+  },
+  {
     name: 'Berkay A.',
     position: 'Orta Saha',
     speed: 85,
