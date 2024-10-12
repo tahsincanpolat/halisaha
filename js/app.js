@@ -139,6 +139,16 @@ const players = [
     defense: 70,
     physical: 82
   },
+   {
+    name: 'Serdar',
+    position: 'Forvet',
+    speed:80,
+    shooting:85,
+    passing:77,
+    dribbling:75,
+    defense:78,
+    physical:80
+   },
   {
     name: 'Kerem',
     position: 'Forvet',
