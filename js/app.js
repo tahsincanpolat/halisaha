@@ -275,7 +275,7 @@ function generatePlayerSelect () {
     checkbox.type = 'checkbox'
     checkbox.id = `player_${index}`
     checkbox.value = index
-
+    checkbox.addEventListener('change', updateSelectedPlayerCount);
     label.appendChild(checkbox)
     label.appendChild(
       document.createTextNode(`${player.name} - ${player.position}`)
@@ -372,4 +372,35 @@ function displayTeams (team1, team2) {
     team1AvgRating.toFixed(2)
   document.getElementById('team2AvgRating').textContent =
     team2AvgRating.toFixed(2)
+}
+function updateSelectedPlayerCount() {
+  const selectedPlayerCountElement = document.getElementById('selectedPlayerCount');
+  const selectedPlayersCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+  document.getElementById('selectedPlayerCount').textContent = "Seçilen oyuncu sayısı: "+  selectedPlayersCount + "/14";
+
+  if (selectedPlayersCount > 14) {
+    selectedPlayerCountElement.classList.add('kirmizi');
+
+  } else {
+    
+    selectedPlayerCountElement.classList.remove('kirmizi');
+  }
+ 
+}
+
+function renderPlayerSelection(players) {
+  const playersSelectDiv = document.getElementById('playersSelect');
+  players.forEach((player, index) => {
+    const label = document.createElement('label');
+    const checkbox = document.createElement('input');
+    checkbox.type = 'checkbox';
+    checkbox.value = index; 
+    checkbox.addEventListener('change', updateSelectedPlayerCount);
+    
+    label.appendChild(checkbox);
+    label.appendChild(document.createTextNode(player.name)); 
+    
+    playersSelectDiv.appendChild(label);
+    playersSelectDiv.appendChild(document.createElement('br'));
+  });
 }
