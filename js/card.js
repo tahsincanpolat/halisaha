@@ -2,46 +2,46 @@ const players = [
     {
       name: 'Burak',
       position: 'STP',
-      image: 'img/placeholder.png',
+      image: 'img/burak.png',
       speed: 70,
-      shooting: 75,
-      passing: 90,
+      shooting: 73,
+      passing: 83,
       dribbling: 70,
       defense: 90,
-      physical: 88
+      physical: 87
     },
     {
       name: 'Tahsin',
       position: 'STP',
       image: 'img/placeholder.png',
       speed: 76,
-      shooting: 88,
+      shooting: 84,
       passing: 90,
       dribbling: 73,
-      defense: 90,
-      physical: 80
+      defense: 91,
+      physical: 85
     },
     {
       name: 'Berkay S.',
       position: 'STP',
       image: 'img/placeholder.png',
       speed: 82,
-      shooting: 80,
-      passing: 85,
+      shooting: 79,
+      passing: 84,
       dribbling: 82,
-      defense: 91,
+      defense: 92,
       physical: 88
     },
     {
       name: 'Baran K.',
       position: 'STP',
       image: 'img/placeholder.png',
-      speed: 77,
-      shooting: 80,
-      passing: 85,
+      speed: 71,
+      shooting: 77,
+      passing: 82,
       dribbling: 78,
       defense: 82,
-      physical: 83
+      physical: 80
     },
     {
       name: 'Ömer İlyas',
@@ -59,22 +59,22 @@ const players = [
       position: 'CM',
       image: 'img/placeholder.png',
       speed: 74,
-      shooting: 77,
-      passing: 90,
-      dribbling: 78,
-      defense: 85,
-      physical: 84
+      shooting: 79,
+      passing: 88,
+      dribbling: 80,
+      defense: 87,
+      physical: 87
     },
     {
       name: 'Baki',
       position: 'STP',
       image: 'img/placeholder.png',
       speed: 82,
-      shooting: 72,
-      passing: 75,
+      shooting: 75,
+      passing: 79,
       dribbling: 80,
-      defense: 85,
-      physical: 80
+      defense: 87,
+      physical: 86
     },
     {
       name: 'İbrahim',
@@ -84,7 +84,7 @@ const players = [
       shooting: 70,
       passing: 72,
       dribbling: 77,
-      defense: 85,
+      defense: 82,
       physical: 77
     },
     {
@@ -106,7 +106,7 @@ const players = [
       shooting: 75,
       passing: 74,
       dribbling: 87,
-      defense: 80,
+      defense: 79,
       physical: 88
     },
     {
@@ -145,20 +145,20 @@ const players = [
     {
       name: 'Serhan',
       position: 'LW',  
-      image: 'img/placeholder.png',
+      image: 'img/serhan.png',
       speed: 72,
-      shooting: 91,
-      passing: 80,
+      shooting: 88,
+      passing: 84,
       dribbling: 73,
       defense: 70,
-      physical: 82
+      physical: 86
     },
     {
       name: 'Kerem',
       position: 'ST',  
-      image: 'img/placeholder.png',
+      image: 'img/kerem.png',
       speed: 89,
-      shooting: 92,
+      shooting: 93,
       passing: 87,
       dribbling: 95,
       defense: 70,
@@ -180,7 +180,7 @@ const players = [
       position: 'ST',  
       image: 'img/placeholder.png',
       speed: 80,
-      shooting: 85,
+      shooting: 83,
       passing: 82,
       dribbling: 79,
       defense: 74,
@@ -209,6 +209,17 @@ const players = [
       physical: 82
     },
     {
+      name: 'Rıdvan',
+      position: 'ST',  
+      image: 'img/placeholder.png',
+      speed: 79,
+      shooting: 86,
+      passing: 85,
+      dribbling: 76,
+      defense: 77,
+      physical: 90
+    },
+    {
       name: 'Muharrem',
       position: 'STP',
       image: 'img/placeholder.png',
@@ -217,7 +228,7 @@ const players = [
       passing: 75,
       dribbling: 78,
       defense: 85,
-      physical: 82
+      physical: 85
     },
     {
       name: 'Erkan',
@@ -228,7 +239,7 @@ const players = [
       passing: 72,
       dribbling: 73,
       defense: 89,
-      physical: 87
+      physical: 88
     },
     {
       name: 'Muharrem ',

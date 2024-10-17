@@ -2,46 +2,51 @@ const players = [
   {
     name: 'Burak',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 70,
-    shooting: 75,
-    passing: 90,
+    shooting: 73,
+    passing: 83,
     dribbling: 70,
     defense: 90,
-    physical: 88
+    physical: 87
   },
   {
     name: 'Tahsin',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 76,
-    shooting: 88,
+    shooting: 84,
     passing: 90,
     dribbling: 73,
-    defense: 90,
-    physical: 80
+    defense: 91,
+    physical: 85
   },
   {
     name: 'Berkay S.',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 82,
-    shooting: 80,
-    passing: 85,
+    shooting: 79,
+    passing: 84,
     dribbling: 82,
-    defense: 91,
+    defense: 92,
     physical: 88
   },
   {
     name: 'Baran K.',
     position: 'Defans',
-    speed: 77,
-    shooting: 80,
-    passing: 85,
+    image: 'img/placeholder.png',
+    speed: 71,
+    shooting: 77,
+    passing: 82,
     dribbling: 78,
     defense: 82,
-    physical: 83
+    physical: 80
   },
   {
     name: 'Ömer İlyas',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 82,
     shooting: 72,
     passing: 70,
@@ -52,36 +57,40 @@ const players = [
   {
     name: 'Halil',
     position: 'Orta Saha',
+    image: 'img/placeholder.png',
     speed: 74,
-    shooting: 77,
-    passing: 90,
-    dribbling: 78,
-    defense: 85,
-    physical: 84
+    shooting: 79,
+    passing: 88,
+    dribbling: 80,
+    defense: 87,
+    physical: 87
   },
   {
     name: 'Baki',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 82,
-    shooting: 72,
-    passing: 75,
+    shooting: 75,
+    passing: 79,
     dribbling: 80,
-    defense: 85,
-    physical: 80
+    defense: 87,
+    physical: 86
   },
   {
-    name: 'İbo',
+    name: 'İbrahim',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 82,
     shooting: 70,
     passing: 72,
     dribbling: 77,
-    defense: 85,
+    defense: 82,
     physical: 77
   },
   {
     name: 'Berkay G.',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 83,
     shooting: 80,
     passing: 84,
@@ -92,16 +101,18 @@ const players = [
   {
     name: 'Berkay A.',
     position: 'Orta Saha',
+    image: 'img/placeholder.png',
     speed: 85,
     shooting: 75,
     passing: 74,
     dribbling: 87,
-    defense: 80,
+    defense: 79,
     physical: 88
   },
   {
     name: 'Salih',
     position: 'Orta Saha',
+    image: 'img/placeholder.png',
     speed: 88,
     shooting: 92,
     passing: 94,
@@ -112,6 +123,7 @@ const players = [
   {
     name: 'Onur',
     position: 'Orta Saha',
+    image: 'img/placeholder.png',
     speed: 90,
     shooting: 92,
     passing: 94,
@@ -122,6 +134,7 @@ const players = [
   {
     name: 'Yavuz',
     position: 'Orta Saha',
+    image: 'img/placeholder.png',
     speed: 83,
     shooting: 85,
     passing: 85,
@@ -131,29 +144,21 @@ const players = [
   },
   {
     name: 'Serhan',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 72,
-    shooting: 91,
-    passing: 80,
+    shooting: 88,
+    passing: 84,
     dribbling: 73,
     defense: 70,
-    physical: 82
+    physical: 86
   },
-   {
-    name: 'Serdar',
-    position: 'Forvet',
-    speed:80,
-    shooting:85,
-    passing:77,
-    dribbling:75,
-    defense:78,
-    physical:80
-   },
   {
     name: 'Kerem',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 89,
-    shooting: 92,
+    shooting: 93,
     passing: 87,
     dribbling: 95,
     defense: 70,
@@ -161,7 +166,8 @@ const players = [
   },
   {
     name: 'Ahmet',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 99,
     shooting: 90,
     passing: 82,
@@ -171,9 +177,10 @@ const players = [
   },
   {
     name: 'Yusuf B.',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 80,
-    shooting: 85,
+    shooting: 83,
     passing: 82,
     dribbling: 79,
     defense: 74,
@@ -181,7 +188,8 @@ const players = [
   },
   {
     name: 'Ömer Faruk',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 84,
     shooting: 88,
     passing: 88,
@@ -191,7 +199,8 @@ const players = [
   },
   {
     name: 'Arda',
-    position: 'Forvet',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
     speed: 84,
     shooting: 88,
     passing: 82,
@@ -200,28 +209,42 @@ const players = [
     physical: 82
   },
   {
+    name: 'Rıdvan',
+    position: 'Forvet',  
+    image: 'img/placeholder.png',
+    speed: 79,
+    shooting: 86,
+    passing: 85,
+    dribbling: 76,
+    defense: 77,
+    physical: 90
+  },
+  {
     name: 'Muharrem',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 79,
     shooting: 73,
     passing: 75,
     dribbling: 78,
     defense: 85,
-    physical: 82
+    physical: 85
   },
   {
     name: 'Erkan',
     position: 'Defans',
+    image: 'img/placeholder.png',
     speed: 77,
     shooting: 70,
     passing: 72,
     dribbling: 73,
     defense: 89,
-    physical: 87
+    physical: 88
   },
   {
-    name: 'Muharrem',
+    name: 'Muharrem ',
     position: 'Kaleci',
+    image: 'img/placeholder.png',    
     speed: 90,
     shooting: 90,
     passing: 90,
@@ -230,8 +253,9 @@ const players = [
     physical: 90
   },
   {
-    name: 'Erkan',
+    name: 'Erkan ',
     position: 'Kaleci',
+    image: 'img/placeholder.png',    
     speed: 90,
     shooting: 90,
     passing: 90,
@@ -242,6 +266,7 @@ const players = [
   {
     name: 'Hüseyin',
     position: 'Kaleci',
+    image: 'img/placeholder.png',    
     speed: 90,
     shooting: 90,
     passing: 90,
@@ -250,6 +275,7 @@ const players = [
     physical: 90
   }
 ]
+
 function calculateAverageRating (player) {
   return (
     (player.speed +
@@ -378,11 +404,10 @@ function updateSelectedPlayerCount() {
   const selectedPlayersCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
   document.getElementById('selectedPlayerCount').textContent = "Seçilen oyuncu sayısı: "+  selectedPlayersCount + "/14";
 
-  if (selectedPlayersCount > 14) {
+  if (selectedPlayersCount < 14) {
     selectedPlayerCountElement.classList.add('kirmizi');
 
-  } else {
-    
+  } else {   
     selectedPlayerCountElement.classList.remove('kirmizi');
   }
  
