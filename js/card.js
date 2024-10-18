@@ -144,7 +144,7 @@ const players = [
     },
     {
       name: 'Serhan',
-      position: 'LW',  
+      position: 'ST',  
       image: 'img/serhan.png',
       speed: 72,
       shooting: 88,
